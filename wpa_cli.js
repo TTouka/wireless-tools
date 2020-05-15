@@ -44,6 +44,8 @@ var wpa_cli = module.exports = {
     select_network: select_network,
     scan: scan,
     scan_results: scan_results,
+    disconnect: disconnect,
+    reconnect: reconnect,
     save_config: save_config
 };
 
@@ -388,6 +390,20 @@ function scan(interface, callback) {
 function scan_results(interface, callback) {
     var command = 'wpa_cli';
     var args = ['-i', interface, 'scan_results'];
+
+    return this.exec(command, args, parse_command_interface(callback));
+}
+
+function disconnect(interface, callback) {
+    var command = 'wpa_cli';
+    var args = ['-i', interface, 'disconnect'];
+
+    return this.exec(command, args, parse_command_interface(callback));
+}
+
+function reconnect(interface, callback) {
+    var command = 'wpa_cli';
+    var args = ['-i', interface, 'reconnect'];
 
     return this.exec(command, args, parse_command_interface(callback));
 }
