@@ -391,7 +391,7 @@ function scan_results(interface, callback) {
     var command = 'wpa_cli';
     var args = ['-i', interface, 'scan_results'];
 
-    return this.exec(command, args, parse_command_interface(callback));
+    return this.exec(command, args, parse_scan_results_interface(callback));
 }
 
 function disconnect(interface, callback) {
