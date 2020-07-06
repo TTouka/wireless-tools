@@ -137,7 +137,7 @@ function parse_status_interface(callback) {
  * @private
  * @static
  * @category iwconfig
- * @param {string} [interface] The wireless network interface.
+ * @param {string} [iface] The wireless network interface.
  * @param {function} callback The callback function.
  * @example
  *
@@ -174,12 +174,12 @@ function parse_status_interface(callback) {
  * ]
  *
  */
-function status(interface, callback) {
+function status(iface, callback) {
   if (callback) {
-    return this.exec('iwconfig ' + interface,
+    return this.exec('iwconfig ' + iface,
       parse_status_interface(callback));
   }
   else {
-    return this.exec('iwconfig', parse_status(interface));
+    return this.exec('iwconfig', parse_status(iface));
   }
 }

@@ -179,7 +179,7 @@ function parse_scan(show_hidden, callback) {
  *
  * @static
  * @category iwlist
- * @param {string} interface The wireless network interface.
+ * @param {string} iface The wireless network interface.
  * @param {function} callback The callback function.
  * @example
  *
@@ -291,12 +291,12 @@ function parse_scan(show_hidden, callback) {
  *
  */
 function scan(options, callback) {
-  var interface, show_hidden
+  var iface, show_hidden
   if (typeof options === 'string') {
-    var interface = options;
+    var iface = options;
     var show_hidden = false;
   } else {
-    var interface = options.iface;
+    var iface = options.iface;
     var show_hidden = options.show_hidden || false;
   }
 
@@ -306,5 +306,5 @@ function scan(options, callback) {
     extra_params = ' essid ' + options.ssid;
   }
 
-  this.exec('iwlist ' + interface + ' scan' + extra_params, parse_scan(show_hidden, callback));
+  this.exec('iwlist ' + iface + ' scan' + extra_params, parse_scan(show_hidden, callback));
 }

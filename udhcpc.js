@@ -43,7 +43,7 @@ var udhcpc = module.exports = {
  *
  * @static
  * @category udhcpc
- * @param {string} interface The network interface.
+ * @param {string} iface The network interface.
  * @param {function} callback The callback function.
  * @returns {process} The child process.
  * @example
@@ -55,8 +55,8 @@ var udhcpc = module.exports = {
  * });
  *
  */
-function disable(interface, callback) {
-  var command = 'kill `pgrep -f "^udhcpc -i ' + interface + '"` || true';
+function disable(iface, callback) {
+  var command = 'kill `pgrep -f "^udhcpc -i ' + iface + '"` || true';
   return this.exec(command, callback);
 }
 
@@ -78,11 +78,11 @@ function disable(interface, callback) {
  * };
  *
  * udhcpc.enable(options, function(err) {
- *   // the dhcp client was started 
+ *   // the dhcp client was started
  * });
  *
  */
 function enable(options, callback) {
   var command = 'udhcpc -i ' + options.interface + ' -n';
-  return this.exec(command, callback);  
+  return this.exec(command, callback);
 }

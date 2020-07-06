@@ -42,7 +42,7 @@ var hostapd = module.exports = {
  *
  * @static
  * @category hostapd
- * @param {string} interface The network interface of the access point.
+ * @param {string} iface The network interface of the access point.
  * @param {function} callback The callback function.
  * @returns {process} The child process.
  * @example
@@ -54,8 +54,8 @@ var hostapd = module.exports = {
  * });
  *
  */
-function disable(interface, callback) {
-  var file = interface + '-hostapd.conf';
+function disable(iface, callback) {
+  var file = iface + '-hostapd.conf';
 
   return this.exec('kill `pgrep -f "^hostapd -B ' + file + '"` || true',
     callback);

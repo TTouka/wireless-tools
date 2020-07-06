@@ -44,7 +44,7 @@ var wpa_supplicant = module.exports = {
  *
  * @static
  * @category wpa_supplicant
- * @param {string} interface The network interface.
+ * @param {string} iface The network interface.
  * @param {function} callback The callback function.
  * @returns {process} The child process.
  * @example
@@ -56,9 +56,9 @@ var wpa_supplicant = module.exports = {
  * });
  *
  */
-function disable(interface, callback) {
+function disable(iface, callback) {
   var command = 'kill `pgrep -f "wpa_supplicant -i ' +
-    interface + ' .*"` || true';
+    iface + ' .*"` || true';
 
   return this.exec(command, callback);
 }
@@ -118,5 +118,3 @@ function manual(options, callback) {
 
   return this.exec(command, callback);
 }
-
-

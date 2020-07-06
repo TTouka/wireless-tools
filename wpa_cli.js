@@ -252,7 +252,7 @@ function parse_scan_results_interface(callback) {
  * @private
  * @static
  * @category wpa
- * @param {string} [interface] The wireless network interface.
+ * @param {string} [iface] The wireless network interface.
  * @param {function} callback The callback function.
  * @example
  *
@@ -299,23 +299,23 @@ function parse_scan_results_interface(callback) {
  * OK
  *
  */
-function status(interface, callback) {
+function status(iface, callback) {
     var command = 'wpa_cli';
-    var args = ['-i', interface, 'status'];
+    var args = ['-i', iface, 'status'];
 
     return this.exec(command, args, parse_status_interface(callback));
 }
 
-function bssid(interface, ap, ssid, callback) {
+function bssid(iface, ap, ssid, callback) {
     var command = 'wpa_cli';
-    var args = ['-i', interface, 'bssid', ssid, ap];
+    var args = ['-i', iface, 'bssid', ssid, ap];
 
     return this.exec(command, args, parse_command_interface(callback));
 }
 
-function reassociate(interface, callback) {
+function reassociate(iface, callback) {
     var command = 'wpa_cli';
-    var args = ['-i', interface, 'reassociate'];
+    var args = ['-i', iface, 'reassociate'];
 
     return this.exec(command, args, parse_command_interface(callback));
 }
@@ -331,86 +331,86 @@ function reassociate(interface, callback) {
     // enable_network: enable_network
 */
 
-function set(interface, variable, value, callback) {
+function set(iface, variable, value, callback) {
     var command = 'wpa_cli';
-    var args = ['-i', interface, 'set', variable, value];
+    var args = ['-i', iface, 'set', variable, value];
 
     return this.exec(command, args, parse_command_interface(callback));
 }
 
-function add_network(interface, callback) {
+function add_network(iface, callback) {
     var command = 'wpa_cli';
-    var args = ['-i', interface, 'add_network'];
+    var args = ['-i', iface, 'add_network'];
 
     return this.exec(command, args, parse_command_interface(callback));
 }
 
-function set_network(interface, id, variable, value, callback) {
+function set_network(iface, id, variable, value, callback) {
     var command = 'wpa_cli';
-    var args = ['-i', interface, 'set_network', id, variable, value];
+    var args = ['-i', iface, 'set_network', id, variable, value];
 
     return this.exec(command, args, parse_command_interface(callback));
 }
 
-function enable_network(interface, id, callback) {
+function enable_network(iface, id, callback) {
     var command = 'wpa_cli';
-    var args = ['-i', interface, 'enable_network', id ];
+    var args = ['-i', iface, 'enable_network', id ];
 
     return this.exec(command, args, parse_command_interface(callback));
 }
 
-function disable_network(interface, id, callback) {
+function disable_network(iface, id, callback) {
     var command = 'wpa_cli';
-    var args = ['-i', interface, 'disable_network', id];
+    var args = ['-i', iface, 'disable_network', id];
 
     return this.exec(command, args, parse_command_interface(callback));
 }
 
-function remove_network(interface, id, callback) {
+function remove_network(iface, id, callback) {
     var command = 'wpa_cli';
-    var args = ['-i', interface, 'remove_network', id ];
+    var args = ['-i', iface, 'remove_network', id ];
 
     return this.exec(command, args, parse_command_interface(callback));
 }
 
-function select_network(interface, id, callback) {
+function select_network(iface, id, callback) {
     var command = 'wpa_cli';
-    var args = ['-i', interface, 'select_network', id ];
+    var args = ['-i', iface, 'select_network', id ];
 
     return this.exec(command, args, parse_command_interface(callback));
 }
 
-function scan(interface, callback) {
+function scan(iface, callback) {
     var command = 'wpa_cli';
-    var args = ['-i', interface, 'scan'];
+    var args = ['-i', iface, 'scan'];
 
     return this.exec(command, args, parse_command_interface(callback));
 }
 
-function scan_results(interface, callback) {
+function scan_results(iface, callback) {
     var command = 'wpa_cli';
-    var args = ['-i', interface, 'scan_results'];
+    var args = ['-i', iface, 'scan_results'];
 
     return this.exec(command, args, parse_scan_results_interface(callback));
 }
 
-function disconnect(interface, callback) {
+function disconnect(iface, callback) {
     var command = 'wpa_cli';
-    var args = ['-i', interface, 'disconnect'];
+    var args = ['-i', iface, 'disconnect'];
 
     return this.exec(command, args, parse_command_interface(callback));
 }
 
-function reconnect(interface, callback) {
+function reconnect(iface, callback) {
     var command = 'wpa_cli';
-    var args = ['-i', interface, 'reconnect'];
+    var args = ['-i', iface, 'reconnect'];
 
     return this.exec(command, args, parse_command_interface(callback));
 }
 
-function save_config(interface, callback) {
+function save_config(iface, callback) {
     var command = 'wpa_cli';
-    var args = ['-i', interface, 'save_config'];
+    var args = ['-i', iface, 'save_config'];
 
     return this.exec(command, args, parse_command_interface(callback));
 }

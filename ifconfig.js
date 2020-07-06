@@ -140,7 +140,7 @@ function parse_status_interface(callback) {
  *
  * @static
  * @category ifconfig
- * @param {string} [interface] The network interface.
+ * @param {string} [iface] The network interface.
  * @param {function} callback The callback function.
  * @example
  *
@@ -187,12 +187,12 @@ function parse_status_interface(callback) {
  * ]
  *
  */
-function status(interface, callback) {
+function status(iface, callback) {
   if (callback) {
-    this.exec('ifconfig ' + interface, parse_status_interface(callback));  
+    this.exec('ifconfig ' + iface, parse_status_interface(callback));
   }
   else {
-    this.exec('ifconfig -a', parse_status(interface));  
+    this.exec('ifconfig -a', parse_status(iface));
   }
 }
 
@@ -201,7 +201,7 @@ function status(interface, callback) {
  *
  * @static
  * @category ifconfig
- * @param {string} interface The network interface.
+ * @param {string} iface The network interface.
  * @param {function} callback The callback function.
  * @returns {process} The child process.
  * @example
@@ -213,8 +213,8 @@ function status(interface, callback) {
  * });
  *
  */
-function down(interface, callback) {
-  return this.exec('ifconfig ' + interface + ' down', callback);
+function down(iface, callback) {
+  return this.exec('ifconfig ' + iface + ' down', callback);
 }
 
 /**
@@ -236,7 +236,7 @@ function down(interface, callback) {
  * };
  *
  * ifconfig.up(options, function(err) {
- *   // the interface is up 
+ *   // the interface is up
  * });
  *
  */
